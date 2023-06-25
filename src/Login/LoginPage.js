@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const LoginPage = () => {
   const [studentId, setStudentId] = useState("");
@@ -27,12 +28,13 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>로그인</h1>
+    <Wrapper>
+      <h1>과제 관리 도우미</h1>
+      <h2>로그인</h2>
       <form>
         <div>
-          <label htmlFor="studentId">학번</label>
-          <input
+          <Label htmlFor="studentId">학번</Label>
+          <Input
             type="number"
             id="studentId"
             value={studentId}
@@ -40,8 +42,8 @@ const LoginPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">비밀번호</label>
-          <input
+          <Label htmlFor="password">비밀번호</Label>
+          <Input
             type="password"
             id="password"
             value={password}
@@ -56,8 +58,30 @@ const LoginPage = () => {
         아직 회원이 아니신가요? <Link to="/signup">회원가입</Link> 페이지로
         이동하세요.
       </p>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+`;
+
+const Label = styled.label`
+  font-size: 16px;
+  margin-bottom: 0;
+`;
+
+const Input = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+`;
 
 export default LoginPage;

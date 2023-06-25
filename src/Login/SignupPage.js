@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 const SignupPage = () => {
   const [studentId, setStudentId] = useState("");
@@ -27,12 +28,12 @@ const SignupPage = () => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <h1>회원가입</h1>
       <form>
         <div>
-          <label htmlFor="studentId">학번</label>
-          <input
+          <Label htmlFor="studentId">학번</Label>
+          <Input
             type="number"
             id="studentId"
             value={studentId}
@@ -40,8 +41,8 @@ const SignupPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">비밀번호</label>
-          <input
+          <Label htmlFor="password">비밀번호</Label>
+          <Input
             type="password"
             id="password"
             value={password}
@@ -49,8 +50,8 @@ const SignupPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="name">이름</label>
-          <input
+          <Label htmlFor="name">이름</Label>
+          <Input
             type="text"
             id="name"
             value={name}
@@ -61,8 +62,30 @@ const SignupPage = () => {
           회원가입
         </button>
       </form>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+`;
+
+const Label = styled.label`
+  font-size: 16px;
+  margin-bottom: 0;
+`;
+
+const Input = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+`;
 
 export default SignupPage;
