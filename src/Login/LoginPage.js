@@ -1,11 +1,11 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useState } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const LoginPage = () => {
-  const [studentId, setStudentId] = useState("");
-  const [password, setPassword] = useState("");
+  const [studentId, setStudentId] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -17,19 +17,19 @@ const LoginPage = () => {
 
     // 서버 요청
     axios
-      .post("http://localhost:8000/api/login", userData)
+      .post('http://localhost:8000/api/login', userData)
       .then((response) => {
-        alert("로그인 성공");
-        navigate("/main", { state: { id: studentId } });
+        alert('로그인 성공');
+        navigate('/main', { state: { id: studentId } });
       })
       .catch((error) => {
-        alert("로그인 실패");
+        alert('로그인 실패');
       });
   };
 
   return (
     <Wrapper>
-      <h1>과제 관리 도우미</h1>
+      <h1>과제 관리 도우미야야야 </h1>
       <h2>로그인</h2>
       <form>
         <div>
